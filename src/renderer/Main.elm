@@ -1,5 +1,6 @@
 module Main exposing (..)
 
+import Browser exposing (sandbox)
 import Html exposing (Html, button, div, h1, input, p, text)
 import Html.Attributes exposing (placeholder, value)
 import Html.Events exposing (onClick, onInput)
@@ -8,9 +9,9 @@ import IpcSerializer
 import Ports
 
 
-main : Program Never Model Msg
+main : Program () Model Msg
 main =
-    Html.program
+    Browser.document
         { init = init
         , view = view
         , update = update
@@ -29,8 +30,8 @@ type alias Model =
     }
 
 
-init : ( Model, Cmd Msg )
-init =
+init : flags -> ( Model, Cmd Msg )
+init _ =
     ( { counter = 0, name = "" }, Cmd.none )
 
 
@@ -64,15 +65,17 @@ sendIpcCmd ipcMsg =
         |> Ports.sendIpc
 
 
-view : Model -> Html Msg
+view : Model -> Browser.Document Msg
 view model =
-    div []
+    {title = "Visualisation title"
+    , body = [div []
         [ h1 [] [ text "Welcome!" ]
-        , p [] [ text "Change this file and save to see hot module replacement! Notice the application state is retained." ]
+        , p [] [ text "Change this file and save to see hot module replacement! ." ]
         , button [ onClick Decrement ] [ text "-" ]
         , button [ onClick Increment ] [ text "+" ]
-        , div [] [ text (toString model) ]
-        , input [ placeholder "Your name", value model.name, onInput NameChanged ] []
+        , div [] [ text (Debug.toString model) ]
+        , input [ placeholder "Andre", value model.name, onInput NameChanged ] []
         , button [ onClick (SendIpc Ipc.GreetingDialog) ] [ text "Greeting Dialog" ]
         , button [ onClick (SendIpc Ipc.Quit) ] [ text "Quit" ]
-        ]
+        ]]
+    }

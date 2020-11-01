@@ -25,7 +25,10 @@
     }
   },
   "repository": "https://github.com/yourgithubusernamename/yourgithubpackagename",
-  "keywords": ["Electron", "yourkeyword"],
+  "keywords": [
+    "Electron",
+    "yourkeyword"
+  ],
   "author": "Your Name",
   "license": "MIT",
   "devDependencies": {
@@ -39,7 +42,7 @@
     "elm-electron": "0.0.3",
     "elm-hot-loader": "^0.5.4",
     "elm-test": "^0.18.7",
-    "elm-webpack-loader": "^4.3.1",
+    "elm-webpack-loader": "^7.0.0",
     "ts-loader": "^2.3.1",
     "typescript": "^2.4.1",
     "webpack": "^3.3.0",
