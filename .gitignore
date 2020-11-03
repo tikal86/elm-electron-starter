@@ -6,3 +6,4 @@ dist/
 index.css
 *.js
 !webpack.config.js
+.idea

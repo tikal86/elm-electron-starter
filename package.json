@@ -4,6 +4,7 @@
   "description": "Your description",
   "main": "main.js",
   "scripts": {
+    "start-dev": "NODE_ENV=dev elm make src/renderer/Main.elm --output dist/bundle.js && electron .",
     "start": "NODE_ENV=dev concurrently --kill-others 'webpack-dev-server --hot' 'npm run build-main && electron .'",
     "startprod": "NODE_ENV=production npm run build && electron .",
     "build": "NODE_ENV=production npm run build-main && npm run build-renderer",

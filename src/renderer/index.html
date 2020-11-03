@@ -5,13 +5,24 @@
     <title>Page Title</title>
   </head>
   <body>
+    <div id="container"></div>
+    <!-- <script type="text/javascript" src="ports.js"></script> -->
+    
+    <script type="text/javascript" src='../../dist/bundle.js'></script>
+    <!-- <script type="text/javascript" src="static/js/main-9a2239826e49fd34da55.js"></script></body> -->
+
     <script type="text/javascript">
-    const isDev = process.env.NODE_ENV === 'dev'
-const scriptSrc = isDev
-  ? 'http://localhost:8080/index.bundle.js'
-  : '../../dist/index.bundle.js'
-const $ = require('jquery')
-$.getScript(scriptSrc)
-</script>
-  </body>
+        // const isDev = process.env.NODE_ENV === 'dev'
+        // const scriptSrc = isDev
+        // ? 'http://localhost:8080/index.bundle.js'
+        // : '../../dist/index.bundle.js'
+        // const $ = require('jquery')
+        // $.getScript(scriptSrc)
+    </script>
+    <script>
+        const container = document.getElementById('container');
+        console.log(JSON.stringify(Elm));
+        const app = Elm.Main.init({node:container});
+    </script>
+</body>
 </html>
